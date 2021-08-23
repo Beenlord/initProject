@@ -24,6 +24,10 @@ let modulesList = [
     './node_modules/jquery/dist/jquery.js',
 ]
 
+let dataListFiles = [
+    './source/data/data.json',
+]
+
 let layout = () => {
     return src('./source/pug/index.pug')
         .pipe(pug())
@@ -48,6 +52,11 @@ let script = () => {
         .pipe(rigger())
         .pipe(jsmin())
         .pipe(dest('./public/scripts'))
+}
+
+let data = () => {
+    return src(dataListFiles)
+        .pipe(dest('./public/data'))
 }
 
 let modules = () => {
@@ -89,6 +98,7 @@ let browser = () => {
     watch('./source/scss/**/*.scss', series(style)).on('change', sync.reload)
     watch('./source/js/**/*.js', series(script)).on('change', sync.reload)
     watch('./source/media/**/*.*', series(media)).on('change', sync.reload)
+    watch('./source/data/**/*.*', series(data)).on('change', sync.reload)
 }
 
 exports.compileLayout = layout
