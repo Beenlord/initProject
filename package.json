@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Beenlord/init#readme",
   "devDependencies": {
     "browser-sync": "^2.27.5",
+    "config": "^3.3.6",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
@@ -33,6 +34,7 @@
     "sass": "^1.37.5"
   },
   "dependencies": {
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "vue": "^2.6.14"
   }
 }

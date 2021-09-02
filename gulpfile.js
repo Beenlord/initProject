@@ -1,4 +1,5 @@
 const {src, dest, series, watch} = require('gulp')
+const config = require('config')
 
 // Compile
 const pug = require('gulp-pug')
@@ -38,20 +39,16 @@ let style = () => {
 }
 
 let script = () => {
-    
-    let filelist = [
-        './source/script/script.js',
-        './source/script/pages/*.js',
-    ]
-    
-    return src(filelist)
+    return src(config.get('IndexJs'))
         .pipe(rigger())
         .pipe(jsmin())
         .pipe(dest('./public/scripts'))
 }
 
+console.log(config.get("ProjectPackages"));
+
 let modules = () => {
-    return src(modulesList)
+    return src(config.get("ProjectPackages"))
         .pipe(concat('modules.js'))
         .pipe(jsmin())
         .pipe(dest('./public/scripts'))

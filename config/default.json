@@ -1,0 +1,12 @@
+{
+    "ProjectPackages": [
+        "./node_modules/jquery/dist/jquery.js",
+        "./node_modules/vue/dist/vue.js"
+    ],
+    "IndexPug": "./source/pug/index.pug",
+    "IndexScss": "./source/scss/style.scss",
+    "IndexJs": [
+        "./source/script/script.js",
+        "./source/script/pages/*.js"
+    ]
+}
