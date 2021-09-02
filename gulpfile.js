@@ -21,18 +21,14 @@ const rimraf = require('gulp-rimraf')
 // Browser
 const sync = require('browser-sync').create()
 
-let modulesList = [
-    './node_modules/jquery/dist/jquery.js',
-]
-
 let layout = () => {
-    return src('./source/pug/index.pug')
+    return src(config.get('IndexPug'))
         .pipe(pug())
         .pipe(dest('./public'))
 }
 
 let style = () => {
-    return src('./source/scss/style.scss')
+    return src(config.get('IndexScss'))
         .pipe(sass())
         .pipe(cssmin())
         .pipe(dest('./public'))
